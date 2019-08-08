@@ -16,6 +16,9 @@ if [ ! -d ${CONDA_HOME} ]; then
     puts-step "installing miniconda"
     bash ${CONDA_INSTALL_SCRIPT} -p ${CONDA_HOME} -b | indent
     rm -f ${CONDA_INSTALL_SCRIPT}
+    
+    puts-step "updating miniconda to latest version"
+    ${CONDA} update conda conda-env --yes | indent
 
     puts-step $(${CONDA} --version)" installed"
 else
